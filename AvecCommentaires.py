@@ -36,9 +36,9 @@ data_path = "/home/sdebast/data/mamimo_measurements/"
 tf.logging.set_verbosity(tf.logging.ERROR)
 
 
-# Distance Functions
+# Distance Functions                #Fonction qui calcule la difference entre la vraie position et la position estimée
 def dist(y_true, y_pred):
-    return tf.reduce_mean((
+    return tf.reduce_mean((                   # Renvoie tenseur avec la moyenne des éléments à travers les dimensions d’un tenseur. Comme axis vaut None, toutes les dimensions sont réduites et un tenseur avec un seul élément est renvoyé.
         tf.sqrt(
             tf.square(tf.abs(y_pred[:, 0] - y_true[:, 0]))
             + tf.square(tf.abs(y_pred[:, 1] - y_true[:, 1]))
