@@ -13,6 +13,16 @@ import matplotlib.pyplot as plt
 # import pickle as p
 from data_generator import DataGenerator
 
+# Keras est une bibliothèque "model-level", fournissant des blocs de construction de haut niveau pour le développement de modèles de deep learning.
+# Il ne gère pas lui-même les opérations de bas niveau telles que les produits tensoriels, les convolutions, etc. Au lieu de cela, il s'appuie sur
+# une bibliothèque de manipulation de tenseurs spécialisée et bien optimisée pour ce faire, servant de "moteur principal" de Keras. 
+# (Un tenseur, exprimé dans un système de coordonnées particulier, est une sorte de n-uplet généralisé qui peut avoir 1 dimension (un n-uplet), ou 2 (une matrice) ou plus.)
+# Plutôt que de choisir une seule bibliothèque de tenseurs et de rendre l'implémentation de Keras liée à cette bibliothèque, Keras gère le problème
+# de manière modulaire, et plusieurs moteurs principaux différents peuvent être connectés de manière transparente à Keras.
+# Keras dispose de deux implémentations de backend, celui utilisé ici (TensorFlow) est un framework de manipulation de tenseurs symboliques open source développé par Google.
+
+
+
 import os
 os.environ["CUDA_VISIBLE_DEVICES"] = "0,1"
 
@@ -48,7 +58,7 @@ def build_nn(num_antenna=64):
     dropout_rate = 0.25
     num_complex_channels = 6
 
-    def k_mean(tensor):
+    def k_mean(tensor):                         # K-means est l'un des algorithmes de clustering les plus répandus. Il permet d'analyser un jeu de données caractérisées par un ensemble de descripteurs, afin de regrouper les données “similaires” en groupes (ou clusters).
         return K.mean(tensor, axis=2)
 
     mean_input = Lambda(k_mean)(nn_input)
