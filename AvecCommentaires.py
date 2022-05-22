@@ -55,7 +55,7 @@ def true_dist(y_true, y_pred):
 def build_nn(num_antenna=64):
     nn_input = Input((num_antenna, num_sub, 2))
 
-    dropout_rate = 0.25
+    dropout_rate = 0.25                 # En termes simples, dropout fait référence au fait d'ignorer des unités (c'est-à-dire des neurones) pendant la phase d'entraînement d'un certain ensemble de neurones qui est choisi au hasard. Ces unités ne sont pas prises en compte lors d'une progression avant ou arrière particulière.
     num_complex_channels = 6
 
     def k_mean(tensor):                         # K-means est l'un des algorithmes de clustering les plus répandus. Il permet d'analyser un jeu de données caractérisées par un ensemble de descripteurs, afin de regrouper les données “similaires” en groupes (ou clusters).
