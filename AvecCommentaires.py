@@ -23,8 +23,9 @@ from data_generator import DataGenerator
 
 
 
-import os
-os.environ["CUDA_VISIBLE_DEVICES"] = "0,1"
+import os                   # Ca permet d'effectuer automatiquement de nombreuses tâches du système d'exploitation. Le module OS en Python fournit des fonctions pour créer et supprimer un répertoire (dossier), récupérer son contenu, modifier et identifier le répertoire courant, etc.
+os.environ["CUDA_VISIBLE_DEVICES"] = "0,1"              # Multi GPU training : 0 et 1 sont les index des GPU
+
 
 transfered = "ULA"
 scenarios = ["distributed", "URA"]
